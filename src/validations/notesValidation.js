@@ -41,7 +41,7 @@ export const createNoteSchema = {
       'string.min': 'Title must be at least {#limit}',
       'any.required': 'Title is required',
     }),
-    content: Joi.string().messages({
+    content: Joi.string().allow('').messages({
       'string.base': 'Content must be a string',
     }),
     tag: Joi.string()
@@ -61,7 +61,7 @@ export const updateNoteSchema = {
       'string.base': 'Title must be a string',
       'string.min': 'Title must be at least {#limit}',
     }),
-    content: Joi.string().messages({
+    content: Joi.string().allow('').messages({
       'string.base': 'Content must be a string',
     }),
     tag: Joi.string()
@@ -72,6 +72,6 @@ export const updateNoteSchema = {
   })
     .min(1)
     .messages({
-      'any.only': 'Field is required',
+      'object.min': 'Field is required',
     }),
 };
